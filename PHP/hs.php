@@ -9,18 +9,23 @@ $json = '[
     }
 ]';
 $mang = json_decode($json);
-
 $dem = count($mang);
 $fl = false;
+// if ($mang[0]->company_id == 1) {
+//     echo 1;
+// }
+// else{
+//     echo 0;
+// }
+
 for ($i=0; $i < ($dem); $i++) { 
-    if(($mang[$i]->company_id) == 3){
-        $fl == true;
+    if(($mang[$i]->company_id) == 1){
+        $fl = true;
     }
 }
-
-if ($fl) {
-    echo 'k dc thuc hien';
+if ($fl == true) {
+    echo 'k dc thuc1 hien';
 }
 else {
-    echo 'dc thuc hien';
+    echo 'dc thuc1 hien';
 }
