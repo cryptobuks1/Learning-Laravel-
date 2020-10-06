@@ -17,6 +17,9 @@
         // Nếu người dùng có chọn file để upload
         if (isset($_FILES['avatar']))
         {
+            echo '</br>';
+            var_dump($_FILES);
+            echo '</br>';
             // Nếu file upload không bị lỗi,
             // Tức là thuộc tính error > 0
             if ($_FILES['avatar']['error'] > 0)
