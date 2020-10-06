@@ -8,20 +8,12 @@
         <form method="POST">
             <table>
             <tr>
-                <th>
-                    Username: 
-                </th>
-                <th>
-                    <input type="text" name="username1" value=""/> <br/>
-                </th>
+                <th>Username: </th>
+                <th><input type="text" name="username1" value=""/> <br/></th>
             </tr>
             <tr>
-                <th>
-                    password: 
-                </th>
-                <th>
-                    <input type="password" name="password" value=""/><br/>
-                </th>
+                <th>Password: </th>
+                <th><input type="password" name="password" value=""/><br/></th>
             </tr>
             </table>
             <input type="submit" name="form_click" value="Gửi Dữ Liệu"/>
