@@ -1,7 +1,20 @@
 <!-- phía trên đầu mỗi file để sử dụng session -->
 <!-- Nếu bạn dùng nhiều file include lẫn nhau thì đặt nó ở file chính -->
-<?php session_start(); ?>
+<?php session_start();
+// Nếu click vào nút Lưu Session
+if (isset($_POST['save-session']))
+{
+    // Lưu Session
+    $_SESSION['name'] = $_POST['username'];
+}
+if (isset($_POST['delete-session'])) {
+    // Xóa session name
+    unset($_SESSION['name']);
   
+    // // Xóa hết session
+    // session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +22,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1>
+            <?php
+            // Hiển thị thông tin lưu trong Session
+            // phải kiểm tra có tồn tại không trước khi hiển thị nó ra
+            if (isset($_SESSION['name']))
+            {
+                echo 'Tên Đăng Nhập Là: ' . $_SESSION['name'];
+            }
+            else {
+                echo 'Đã Xóa Session';
+            }
+            ?>
+        </h1>
+        <form method="POST" action="">
+            <input type="text" name="username" value=""/> <br/>
+            <input type="submit" name="save-session" value="Lưu Session"/>
+            <input type="submit" name="delete-session" value="Xóa Session"/>
+        </form>
     </body>
 </html>
