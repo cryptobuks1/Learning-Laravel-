@@ -16,8 +16,9 @@ $result = mysqli_query($conn, $sql);
  
 // BƯỚC 4: XỬ LÝ KẾT QUẢ MYSQL TRẢ VỀ
 while ($row = mysqli_fetch_assoc($result)){
-    foreach ($row as $key => $value) {
-        echo $key . '=>' . $value . '</br>';
-    }
+    // foreach ($row as $key => $value) {
+    //     echo $key . '=>' . $value . '</br>  ';
+    // }
+    echo($row['id'] .'--'. $row['name'] .'--'. $row['age'] .'--'. $row['address']).'</br>';
 }
 ?>
