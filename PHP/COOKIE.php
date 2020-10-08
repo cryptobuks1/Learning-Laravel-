@@ -1,8 +1,10 @@
 <!DOCTYPE html>
   
 <?php
+    //set name, value, thời gian sống của cookie
     setcookie('username', 'thehalfheart', time() + 3600);
 
+    //khi ấn vào submit có name delete-cookie
     if (isset($_POST['delete-cookie'])) {
         // Xóa cookie name
         // để xóa cookie => thiết lập thời gian âm >= thời gian sống của cookie
