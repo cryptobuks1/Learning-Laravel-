@@ -1,6 +1,10 @@
+https://freetuts.net/hoc-php/hoc-lap-trinh-php-can-ban
+
 06/10/2020 Bài23 DONE
 
-10/07/2020 Bài24
+07/10/2020 Bài24
 ***Session và Cookie dùng để lưu trữ dữ liệu tạm thời
     ***Session lưu => Máy Server (Lưu thông tin Login, giỏ hàng, ... "mỗi client sẽ có dư liệu khác nhau")
     ***Cookie lưu => Máy Client
+
+08/10/2020 Bài 27 DONE
