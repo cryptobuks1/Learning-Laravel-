@@ -1,0 +1,12 @@
+LINK: https://viblo.asia/p/tao-authentication-rieng-de-check-dang-nhap-trong-laravel-63vKj0WVl2R
+b1: Tạo auth.
+b2: Bạn tạo Model cho bảng cần kiểm tra.
+b3: Chỉnh sửa file auth.
+b4: use auth và sử dụng.
+------------------------------------------
+1/ migration customers
+2/ routes => web.php
+3/ Controller => UserController.php
+4/ config => auth.php (guards/providers)
+5/ Model => Customers.php
+6/ resources => view => login.blade.php
