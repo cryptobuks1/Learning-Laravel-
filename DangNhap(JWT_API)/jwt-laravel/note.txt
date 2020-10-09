@@ -1,0 +1,47 @@
+LINK: https://viblo.asia/p/jwt-json-web-tokens-trong-laravel-57-1VgZvoaOlAw
+----------------------------------------------------------------------------------------------
+1*
+composer require tymon/jwt-auth:dev-develop --prefer-source
+===> composer.json & composer.lock
+----------------------------------------------------------------------------------------------
+2*
+config/app.php, tìm mảng providers và thêm jwt-auth provider
+===> Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+----------------------------------------------------------------------------------------------
+3*
+Tiếp tục tìm đến mảng aliases và thêm jwt-auth facade như sau
+===> 'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+----------------------------------------------------------------------------------------------
+4*
+Pulish file config/jwt.php
+===> php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+----------------------------------------------------------------------------------------------
+5*
+Và tạo key cho jwt: tự động sinh ra key JWT_SECRET trong file .env
+===> php artisan jwt:secret
+----------------------------------------------------------------------------------------------
+6*
+Models User.php
+Khi người dùng đăng nhập thành công,
+một token sẽ được sinh ra và trả về cùng model user.
+Model user sẽ implement JWTSubject. Update lại model user
+----------------------------------------------------------------------------------------------
+7*
+Tạo validate form request cho việc đăng ký app\Http\Requests
+===> php artisan make:request RegisterFormRequest
+----------------------------------------------------------------------------------------------
+8*
+Tạo controller với nhiệm vụ đăng ký, login, logout và reset password
+===> php artisan make:controller AuthController
+----------------------------------------------------------------------------------------------
+9*
+Update lại file api.route
+===> Route::post('signup', 'AuthController@register');
+===> Route::post('login', 'AuthController@login');
+===> Route::group(['middleware' => 'jwt.auth'], function () {
+        Route::get('auth', 'AuthController@user');
+        Route::post('logout', 'AuthController@logout');
+    });
+===> Route::middleware('jwt.refresh')->get('/token/refresh', 'AuthController@refresh');
+----------------------------------------------------------------------------------------------
+10*
